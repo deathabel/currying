@@ -27,7 +27,7 @@ const totalPriceCalculate = calculate(
 
 console.log(totalPriceCalculate(...shoesPrices));
 
-const clothesPrices = [1000, 800];
+const clothesPrices = [120, 200, 150];
 // different discount shoe 10, cloth 20 off
 // total discount 10 off
 console.log(
