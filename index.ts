@@ -2,57 +2,12 @@
  *
  */
 const shoesPrices = [100, 80];
-const totalPrice = (...prices) => prices.reduce((pre, cur) => pre + cur, 0);
-const discount = (price, off) => price * ((100 - off) / 100);
-console.log(discount(totalPrice(...shoesPrices), 10));
-
-const totalPriceCurrying =
-  (startPrice) =>
-  (...prices) =>
-    startPrice + totalPrice(...prices);
-const discountCurrying = (off) => (price) => discount(price, off);
-const calculate =
-  (...formula) =>
-  (...prices) =>
-    formula.reduce(
-      (prices, formulaFn) =>
-        formulaFn(...(Array.isArray(prices) ? prices : [prices])),
-      prices
-    );
-
-const totalPriceCalculate = calculate(
-  totalPriceCurrying(0),
-  discountCurrying(10)
-);
-
-console.log(totalPriceCalculate(...shoesPrices));
-
 const clothesPrices = [120, 200, 150];
-// different discount shoe 10, cloth 20 off
-// total discount 10 off
-console.log(
-  discount(
-    totalPrice(
-      discount(totalPrice(...shoesPrices), 10),
-      discount(totalPrice(...clothesPrices), 20)
-    ),
-    10
-  )
-);
 
-const shoesPriceCalcuate = calculate(
-  totalPriceCurrying(0),
-  discountCurrying(10)
-);
+// totalPrice function
 
-const clothesPriceCalcuate = calculate(
-  totalPriceCurrying(0),
-  discountCurrying(20)
-);
+// discount function
 
-console.log(
-  totalPriceCalculate(
-    shoesPriceCalcuate(...shoesPrices),
-    clothesPriceCalcuate(...clothesPrices)
-  )
-);
+console.log('A顧客結果');
+
+console.log('B顧客結果');
