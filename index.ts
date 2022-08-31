@@ -6,6 +6,21 @@ const clothesPrices = [120, 200, 150];
 // 計算Function
 const totalPrice = (...prices) => prices.reduce((pre, cur) => pre + cur, 0);
 const discount = (price, off) => price * ((100 - off) / 100);
+
+console.log('A顧客金額');
+console.log(discount(totalPrice(...shoesPrices), 10));
+
+console.log('B顧客金額');
+console.log(
+  discount(
+    totalPrice(
+      discount(totalPrice(...shoesPrices), 10),
+      discount(totalPrice(...clothesPrices), 20)
+    ),
+    10
+  )
+);
+
 // totalPrice Currying
 const totalPriceCurrying =
   () =>
